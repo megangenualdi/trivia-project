@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+
+#home-btn {
+ display:flex;
+ justify-content: center;
+
+}
+.my-list {
+  list-style-position: inside;
+}
