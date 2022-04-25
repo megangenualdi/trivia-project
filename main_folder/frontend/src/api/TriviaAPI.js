@@ -1,42 +1,64 @@
-
+import apiHelpers from "./apiHelpers"
 import axios from "axios"
 
 
 const TriviaAPI = { }
 
-const BASE_URL = "http://127.0.0.1:8000/trivia_api/"
-
-const tryCatchFetch = async (axiosCall) => {
-  try {
-    const response = await axiosCall()
-    console.log("RESPONSE:", response)
-    console.log("RESONSE DATA:", response.data)
-    return response.data
-  }  
-  catch (e) {
-    console.error("Error:", e)
-    return null
-  }
-}
-
-TriviaAPI.getAllResults = async () => {
- return await tryCatchFetch(() => axios.get(`${BASE_URL}results/`))
-}
+const BASE_URL = "http://localhost:8000/trivia_api/"
 
 TriviaAPI.getAllProfiles = async () => {
-  return await tryCatchFetch(() => axios.get(`${BASE_URL}profiles/`))
+  return await apiHelpers.tryCatchFetch(() => axios.get(`${BASE_URL}profiles/`, apiHelpers.getCsrfConfig()))
 }
 
 TriviaAPI.getProfileById = async (profileid) => {
-  return await tryCatchFetch(() => axios.get(`${BASE_URL}profiles/${profileid}`))
+  return await apiHelpers.tryCatchFetch(() => axios.get(`${BASE_URL}profiles/${profileid}`, apiHelpers.getCsrfConfig()))
+}
+
+TriviaAPI.getProfileByPlayer = async (player) => {
+  return await apiHelpers.tryCatchFetch(() => axios.get(`${BASE_URL}profiles`, {
+    params: {
+      player: `${player}`
+    }
+  }))
+}
+
+TriviaAPI.createProfile = async (profileData) => {
+  return await apiHelpers.tryCatchFetch(() => axios.post(`${BASE_URL}profiles/`, profileData, apiHelpers.getCsrfConfig()))
 }
 
 TriviaAPI.getAllAchievements = async () => {
-  return await tryCatchFetch(() => axios.get(`${BASE_URL}achievements/`))
+  return await apiHelpers.tryCatchFetch(() => axios.get(`${BASE_URL}achievements/`, apiHelpers.getCsrfConfig()))
 }
 
 TriviaAPI.newResult = async (resultData) => {
-  return await tryCatchFetch(() => axios.post(`${BASE_URL}results/`, resultData))
+  return await apiHelpers.tryCatchFetch(() => axios.post(`${BASE_URL}results/`, resultData, apiHelpers.getCsrfConfig()))
+}
+
+TriviaAPI.login = async (loginData) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.post(`${BASE_URL}login/`, loginData, apiHelpers.getCsrfConfig()))
+}
+
+TriviaAPI.signup = async (signUpData) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.post(`${BASE_URL}users/`, signUpData, apiHelpers.getCsrfConfig()))
+}
+
+TriviaAPI.logout = async (logout) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.post(`${BASE_URL}logout/`, null, apiHelpers.getCsrfConfig()))
+}
+
+TriviaAPI.edit = async (id, data) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.patch(`${BASE_URL}profiles/${id}/`, data, apiHelpers.getCsrfConfig())
+  )
+}
+
+TriviaAPI.delete = async (id) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.delete(`${BASE_URL}users/${id}/`, apiHelpers.getCsrfConfig())
+  )
 }
 
 

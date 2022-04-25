@@ -9,4 +9,223 @@
 }
 .my-list {
   list-style-position: inside;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  color: #3d2e6d;
+}
+#profile-image {
+  width:75px;
+}
+.image-wrap {
+  position: relative;
+
+}
+.a-image-des {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(214, 200, 247, 0.72);
+  color: rgb(1, 41, 43);
+  visibility: hidden;
+  opacity: 0;
+  width: fit-content;
+  height: fit-content;
+  left:40%;
+  /* transition effect. not necessary */
+  transition: opacity .2s, visibility .2s;
+}
+.image-wrap:hover .a-image-des {
+  visibility: visible;
+  opacity: 1;
+
+}
+
+#play {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 3rem;
+  font-family: "Permanent Marker";
+}
+ 
+p {
+  font-size: 1rem;
+  font-weight: normal;
+}
+ 
+ul,li{
+  list-style:none;
+}
+ul{
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: center;
+}
+ul li a{
+  text-decoration:none;
+  color:#000;
+  background:#ffc;
+  display:block;
+  height:7em;
+  width:7em;
+  padding:1em;
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  transition: transform .15s linear;
+  padding-top: 27px;
+}
+ul li{
+  margin:1em;
+}
+ul li:nth-child(even) a{
+  transform:rotate(4deg);
+  position:relative;
+  top:5px;
+  background-color: cyan;
+}
+ul li:nth-child(3n) a{
+  transform:rotate(-3deg);
+  position:relative;
+  top:-5px;
+  background-color: greenyellow;
+}
+ul li:nth-child(5n) a{
+  transform:rotate(5deg);
+  position:relative;
+  top:-10px;
+  background-color: rgb(247, 129, 168);
+}
+ul li a:hover,ul li a:focus{
+  box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  transform: scale(1.25);
+  position:relative;
+  z-index:5;
+}
+.page-title {
+  font-family: "Indie Flower";
+  border-style: solid;
+  width:fit-content;
+  text-align: center;
+  margin-left: 45%;
+  background-color: thistle;
+
+ 
+}
+#paper {
+  background-color: whitesmoke;
+  padding-top: 50px;
+  padding-bottom: 40px;
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  font-family: "Indie Flower";
+  width:35%;
+  position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    margin: auto;
+  height:60%;
+  margin-top: 300px;
+  margin-bottom: 30px;
+}
+
+.tape {
+  background-color: hsla(0,0%,100%,.2);
+  box-shadow: inset 0 0 1em .5em hsla(0,0%,100%,.1);
+  height: 3em;
+  position: relative;
+  transform: rotate(-30deg);
+  width: 9em;
+  -webkit-filter: drop-shadow(0 1px 1px hsla(0,0%,0%,.3));
+  margin-left: 580px;
+
+}
+.tape:after,
+.tape:before {
+  background-size: .4em .4em;
+  bottom: 0;
+  content: '';
+  position: absolute;
+  top: 0;
+  width: .2em;
+}
+.tape:after {
+  background-image: linear-gradient(45deg, transparent 50%, hsla(0,0%,100%,.3) 50%),
+                    linear-gradient(-45deg, transparent 50%, hsla(0,0%,100%,.3) 50%);
+  background-position: 0 100%;
+  left: -.2em;
+}
+.tape:before {
+  background-image: linear-gradient(135deg, transparent 50%, hsla(0,0%,100%,.3) 50%),
+                    linear-gradient(-135deg, transparent 50%, hsla(0,0%,100%,.3) 50%);
+  background-position: 100% 100%;
+  right: -.2em;
+}
+.a-image {
+  width: 30px;
+  height:40px;
+}
+#edit-btn {
+  margin-left: 400px;
+}
+#update {
+  background-color: yellowgreen;
+}
+#delete {
+  margin-top: 6px;
+  background-color: tomato;
+}
+#back-btn {
+  background-color: orange;
+  margin-top: 6px;
+}
+.list {
+  color: #555;
+  font-size: 22px;
+  padding: 0 !important;
+  width: 500px;
+  font-family: courier, monospace;
+  border: 1px solid #dedede;
+  background-color: #f5f5f5;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height:fit-content;
+  margin: auto;
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  margin-bottom: 450px;
+}
+.list li {
+  border-bottom: 1px dotted #ccc;
+  text-indent: 25px;
+  height: auto;
+  padding: 10px;
+  text-transform: capitalize;
+}
+.links {
+  background-color:rosybrown;
+  font-family: "Indie Flower";
+  font-size: 25px;
+  color:rgb(29, 100, 128);
+  border-style: dashed;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.links:hover {
+  color: rgb(29, 100, 128);
+  background-color: rgb(228, 159, 135);
+}
+#category {
+  font-family: "Indie Flower";
+  color: #555;
+}
+#play-again {
+  text-align: center;
+  
 }

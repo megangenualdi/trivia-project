@@ -2,28 +2,83 @@ import './App.css';
 import { HashRouter, Routes, Route, Link } from "react-router-dom"
 //pages
 import HomePage from './pages/HomePage'
-// import ProfilePage from './pages/ProfilePage'
+import EditProfile from './pages/EditProfile';
 import GamePage from './pages/GamePage'
 import ScorePage from './pages/ScorePage'
 import AllProfiles from './pages/AllProfiles';
 import ProfilePage from './pages/ProfilePage';
+import LoginPage from './pages/LoginPage'
+import SignupPage from './pages/SignupPage';
+import { useState, useEffect } from 'react'
+import axios from "axios"
+// import API_NINJA_KEY from './.env'
 
 function App() {
 
+  const [user, setUser] = useState([])
+  const [fact, setFact] = useState()
+
+  useEffect(() => {
+    axios({
+      method:"get",
+      url: `https://api.api-ninjas.com/v1/facts?limit=1`,
+      headers: {
+        api_key: ''
+      }
+    }).then((response) => {
+      console.log(response.data)
+    })
+
+  }, [])
   return (
     
     <div className="App">
     <HashRouter>
-      <Link to="/"><h1>Trivia App</h1></Link>
-      <hr />
+      <p id="play"><strong>Let's Play</strong></p>
+      <ul>
+  <li>
+    <a href="#">
+      <h1>T</h1>
+    </a>
+  </li>
+  <li id="two">
+    <a href="#">
+      <h1>R</h1>
+    </a>
+  </li>
+  <li id="three">
+    <a href="#">
+      <h1>I</h1>
+    
+    </a>
+  </li>
+  <li id="four">
+    <a href="#">
+      <h1>V</h1>
+    </a>
+  </li>
+  <li id="five">
+    <a href="#">
+      <h1>I</h1>
+    </a>
+  </li>
+  <li id="six">
+    <a href="#">
+      <h1>A</h1>
+    </a>
+  </li>
+</ul>
+<br/>
       <Routes>
-        <Route path='/' element= { <HomePage /> } />
-        <Route path='/game' element= { <GamePage /> } />
+        <Route path='/' element= { <HomePage username={ user.username } setUsername={ setUser }/> } />
+        <Route path='/game/:category' element= { <GamePage user={ user.username }/> } />
         <Route path='/profiles' element= { <AllProfiles /> } />
-        <Route path='/profiles/:id' element= { <ProfilePage /> } />
+        <Route path='/profiles/:id' element= { <ProfilePage username={ user.username }/> } />
+        <Route path='/profiles/:id/edit' element= { <EditProfile id={ user.id } /> } />
         <Route path='/scoreboard' element= { <ScorePage /> } />
+        <Route path='/login' element= { <LoginPage setUser = { setUser }/> } />
+        <Route path='/signup' element= { <SignupPage /> } />
       </Routes>
-
     </HashRouter>
      
     

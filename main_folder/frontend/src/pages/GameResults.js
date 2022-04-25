@@ -7,9 +7,16 @@ function GameResults(props) {
 
   const handleNewResult = async (evt) => {
     evt.preventDefault()
+   
+    const playerProfiles = await TriviaAPI.getAllProfiles()
+    let profile = playerProfiles.filter(function (data) {
+      return data.player === `${props.user}`
+    }).map(function (profile) {
+      return profile
+    })
 
     const resultData = {
-      player_id: 1,
+      player_id: profile[0].id,
       correct_answers: evt.target.elements["points"].value/100,
       points: evt.target.elements["points"].value
     }
@@ -21,13 +28,25 @@ function GameResults(props) {
     }
   }
 
+  const renderTriviaInfo = () => {
+    props.trivia.map((info, index) => {
+      return (
+        <div key={index}>
+          <p>Question {index}: {info.question}</p>
+          <p>Answer: {info.answer}</p>
+        </div>
+      )
+    })
+  }
+
   return (
     <div>
-      <h2>Player Results</h2>
-      <p>You scored {props.points}</p>
+      <h2 className="page-title"><strong>Player Results</strong></h2>
+      <p>You scored {props.points} and answered {props.points/100} questions correctly. {props.user} </p>
+      { renderTriviaInfo() }
       <form onSubmit={ handleNewResult } method="POST">
         <input name="points" value={props.points} type="hidden"/>
-        <button type="submit">Play Again</button>
+        <button type="submit" id="play-again">Play Again</button>
       </form>
 
     </div>

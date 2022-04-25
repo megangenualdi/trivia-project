@@ -17,12 +17,13 @@ function AllProfiles(props) {
 
   const renderProfiles = () => {
     return profiles.map((profile, index) => {
-      return <li><Link key={ index } to={`/profiles/${profile.id}`}>{profile.profile_text}</Link></li>
+      return <li key={ index }><Link to={`/profiles/${profile.id}`}>{profile.player}</Link></li>
     })
   }
   return (
     <div>
-      <h2>All Player Profiles</h2>
+      <div class="page-title"><h2><strong>Player Profiles</strong></h2></div>
+      
       <hr />
       <ul className="my-list">
         { renderProfiles() }
