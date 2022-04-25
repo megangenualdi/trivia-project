@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'trivia_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'trivia_db',
+        'NAME': 'trivia_db2',
     }
 }
 
@@ -129,3 +129,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
+
+CORS_ALLOW_CREDENTIALS = True 
+
+ # added for authentication (required for either separate project -or- hybrid project setups)
+REST_FRAMEWORK = { 
+     "DEFAULT_AUTHENTICATION_CLASSES": [
+         "rest_framework.authentication.SessionAuthentication",
+     ],
+     "DEFAULT_PERMISSION_CLASSES": [
+         "rest_framework.permissions.IsAuthenticated", # block actions for anonymous users by default
+     ]
+ }
+
+CSRF_TRUSTED_ORIGINS = [ 
+     "http://localhost:3000"
+ ]
+
