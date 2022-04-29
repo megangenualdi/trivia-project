@@ -12,6 +12,24 @@
   font-family: 'Courier New', Courier, monospace;
   font-size: 20px;
   color: #3d2e6d;
+  
+}
+.my-list li {
+  display: flex;
+  flex-direction: column;
+}
+.baby-div {
+  margin: 10px;
+  font-size: 30px;
+  background-color:rgb(228, 159, 135);
+  padding: 15px;
+  border-radius: 20%;
+  color:steelblue;
+  border-style: solid;
+  border-color: steelblue;
+}
+.baby-div:hover {
+  color:lightsteelblue;
 }
 #profile-image {
   width:75px;
@@ -121,16 +139,17 @@ ul li a:hover,ul li a:focus{
   box-shadow: 5px 5px 7px rgba(33,33,33,.7);
   font-family: "Indie Flower";
   width:35%;
-  position: absolute;
+  margin-left: 33%;
+  /* position: absolute;
     top:0;
     bottom: 0;
     left: 0;
     right: 0;
     
-    margin: auto;
-  height:60%;
+    margin: auto; */
+  /* height:60%;
   margin-top: 300px;
-  margin-bottom: 30px;
+  margin-bottom: 30px; */
 }
 
 .tape {
@@ -142,7 +161,7 @@ ul li a:hover,ul li a:focus{
   width: 9em;
   -webkit-filter: drop-shadow(0 1px 1px hsla(0,0%,0%,.3));
   margin-left: 580px;
-
+  top:30px;
 }
 .tape:after,
 .tape:before {
@@ -191,11 +210,11 @@ ul li a:hover,ul li a:focus{
   font-family: courier, monospace;
   border: 1px solid #dedede;
   background-color: #f5f5f5;
-  position: absolute;
-  top:0;
+  /* position: absolute;
+  top: 0;
   bottom: 0;
   left: 0;
-  right: 0;
+  right: 0; */
   height:fit-content;
   margin: auto;
   box-shadow: 5px 5px 7px rgba(33,33,33,.7);
@@ -227,5 +246,37 @@ ul li a:hover,ul li a:focus{
 }
 #play-again {
   text-align: center;
-  
+}
+#fact {
+  background-color: lavender;
+  width: 250px;
+  height: fit-content;
+  font-family: "Indie Flower";
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  position: fixed;
+  bottom: 5%;
+  left: 3%;
+}
+#form-btn {
+  font-family: "Indie Flower";
+}
+#login {
+  font-family: "Indie Flower";
+}
+#login-form {
+  font-family: "Indie Flower";
+}
+#score {
+  font-family: "Permanent Marker";
+  text-align: center;
+}
+.loginsignup{
+  margin-top: 10px;
+  background-color: lightpink;
+  font-family: "Indie Flower";
+}
+.login-btn {
+  margin-top: 10px;
+  background-color: lightblue;
+  font-family: "Indie Flower";
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import TriviaAPI from "../api/TriviaAPI";
 import { useParams, useNavigate } from "react-router-dom"
+import Fact from "../components/Fact";
 
 function ProfilePage(props) {
 
@@ -74,15 +75,14 @@ function ProfilePage(props) {
     <br/>
       <div class="tape"></div>
       <div id="paper">
-        <div id="inside-paper">{ profile && renderEdit() }
+        { profile && renderEdit() }
           { profile && renderProfileDetails() }
       <h5><strong>Achievements:</strong></h5>
       <ul>
         { profile && renderAchievements() }
       </ul>
-      
-        </div>
       </div>
+      <Fact />
     </div>
   )
 }

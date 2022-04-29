@@ -22,17 +22,18 @@ function SignupPage(props) {
   
   return (
     <div>
-      <h4>Sign up to play</h4>
-      <form onSubmit= { handleSignup } method="POST ">
-        <label>Username</label>
+      <h4 id="login"><strong>Sign up to play</strong></h4>
+      <hr/>
+      <form id="login-form" onSubmit= { handleSignup } method="POST ">
+        <label><h4><strong>Username</strong></h4></label>
         <br/>
         <input name="username" placeholder="Enter username"/>
         <br/>
-        <label>Password</label>
+        <label><h4><strong>Password</strong></h4></label>
         <br/>
         <input type="password" name="password" placeholder="Enter password"/>
         <br/>
-        <button type="submit">Create Player</button>
+        <button className="loginsignup" type="submit">Create Player</button>
       </form>
     </div>
   )

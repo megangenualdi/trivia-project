@@ -1,6 +1,7 @@
 import TriviaAPI from "../api/TriviaAPI"
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
+import Fact from "../components/Fact"
 
 function AllProfiles(props) {
 
@@ -17,17 +18,17 @@ function AllProfiles(props) {
 
   const renderProfiles = () => {
     return profiles.map((profile, index) => {
-      return <li key={ index }><Link to={`/profiles/${profile.id}`}>{profile.player}</Link></li>
+      return <Link className="baby-div" to={`/profiles/${profile.id}`}>{profile.player}</Link>
     })
   }
   return (
     <div>
-      <div class="page-title"><h2><strong>Player Profiles</strong></h2></div>
-      
+      <div class="page-title"><h2>Player Profiles</h2></div>
       <hr />
-      <ul className="my-list">
+      <div className="my-list">
         { renderProfiles() }
-      </ul>
+      </div>
+      <Fact />
     </div>
   )
 }

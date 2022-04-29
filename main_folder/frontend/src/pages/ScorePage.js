@@ -1,5 +1,6 @@
 import TriviaAPI from "../api/TriviaAPI"
 import { useState, useEffect } from "react"
+import Fact from "../components/Fact"
 
 function ScorePage(props) {
 
@@ -24,14 +25,14 @@ function ScorePage(props) {
 
   return (
     <div>
-      <div class="page-title">
+      <div class="page-title" id="highscore">
         <h3><strong>HIGH SCORES</strong></h3>
       </div>
-      <div>
+      <br/>
       <ol className="list">
         { renderResults() }
       </ol>
-      </div>
+      <Fact />
     </div>
   )
 }

@@ -2,6 +2,7 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.contrib.auth import authenticate, login, logout
+import requests
 
 def error_on_request(error_msg):
     return JsonResponse({"error": error_msg}, status=400)
@@ -38,3 +39,13 @@ def handle_logout(request):
         return error_on_request(str(e))
 
     return bad_request
+
+@csrf_exempt
+def get_fact(request):
+    limit = 1
+    api_url = "https://api.api-ninjas.com/v1/facts?limit={}".format(limit)
+    response = requests.get(api_url, headers={'X-Api-Key': 'zoS0Uu68w8TCd6Mu/V8joA==jLr1SzTklwl4hhh4'})
+    response_dict = json.loads(response.text)
+    print(response_dict)
+    return JsonResponse({"data": response.text})
+   

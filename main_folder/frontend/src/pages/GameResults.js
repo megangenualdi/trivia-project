@@ -1,5 +1,6 @@
 import TriviaAPI from "../api/TriviaAPI"
 import { useNavigate } from "react-router-dom"
+import Fact from "../components/Fact"
 
 function GameResults(props) {
 
@@ -28,27 +29,16 @@ function GameResults(props) {
     }
   }
 
-  const renderTriviaInfo = () => {
-    props.trivia.map((info, index) => {
-      return (
-        <div key={index}>
-          <p>Question {index}: {info.question}</p>
-          <p>Answer: {info.answer}</p>
-        </div>
-      )
-    })
-  }
-
   return (
     <div>
-      <h2 className="page-title"><strong>Player Results</strong></h2>
-      <p>You scored {props.points} and answered {props.points/100} questions correctly. {props.user} </p>
-      { renderTriviaInfo() }
+      <h2 className="page-title">Player Results</h2>
+      <h4 id="score">You scored {props.points} points and answered {props.points/100} question(s) correctly. </h4>
+     
       <form onSubmit={ handleNewResult } method="POST">
         <input name="points" value={props.points} type="hidden"/>
-        <button type="submit" id="play-again">Play Again</button>
+        <button className="loginsignup"type="submit" id="play-again">Play Again</button>
       </form>
-
+    <Fact />
     </div>
   )
 }

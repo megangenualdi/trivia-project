@@ -11,5 +11,6 @@ router.register("users", UserViewSet, basename="user")
 urlpatterns = [
     path("", include(router.urls)) ,
     path("login/", handle_login),
-    path("logout/", handle_logout)
+    path("logout/", handle_logout),
+    path("fact/", get_fact)
 ]

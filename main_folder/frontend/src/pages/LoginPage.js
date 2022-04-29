@@ -40,21 +40,26 @@ function LoginPage(props) {
         navigate('/')
       }
     }
+    else {
+      alert("Error: Invalid username/password input. Please try again.")
+      window.location.reload(true)
+    }
   }
 
   return (
     <div>
-      <h2>Login Page</h2>
-      <form onSubmit={ handleLogin } method="POST ">
-        <label>Username</label>
+      <h2 id="login"><strong>Login Page</strong></h2>
+      <hr/>
+      <form id="login-form" onSubmit={ handleLogin } method="POST ">
+        <label><strong><h4>Username</h4></strong></label>
         <br/>
         <input name="username" placeholder="Enter username"/>
         <br/>
-        <label>Password</label>
+        <label><strong><h4>Password</h4></strong></label>
         <br/>
         <input type="password" name="password" placeholder="Enter password"/>
         <br/>
-        <button type="submit">Login</button>
+        <button className="login-btn" type="submit">Login</button>
       </form>
     </div>
   )

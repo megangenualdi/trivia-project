@@ -61,6 +61,11 @@ TriviaAPI.delete = async (id) => {
   )
 }
 
+TriviaAPI.getFact = async () => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.get(`${BASE_URL}fact/`, apiHelpers.getCsrfConfig())
+  )
+}
 
 
 export default TriviaAPI;

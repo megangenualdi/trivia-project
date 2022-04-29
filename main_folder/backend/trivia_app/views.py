@@ -3,6 +3,7 @@ from rest_framework.viewsets import ModelViewSet
 from .serializers import *
 from .views_auth import *
 from rest_framework import permissions
+import requests
 
 class ProfileViewSet(ModelViewSet):
     queryset = Profile.objects.all()
@@ -24,9 +25,9 @@ class ResultViewSet(ModelViewSet):
 class UserViewSet(ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    http_method_names = ["get", "post", "put", "patch", "delete"] 
+    # http_method_names = ["get", "post", "put", "patch", "delete"] 
 
     def get_permissions(self):
         if self.request.method == "POST":
             return (permissions.AllowAny(),)
-        return (permissions.IsAdminUser(),)
+        return (permissions.IsAuthenticated(),)

@@ -24,6 +24,7 @@ const Choices = styled.div`
     flex-direction: column;
     width: 50%;
     margin: 2em auto;
+    margin-bottom: 10px;
     @media screen and (min-width: 1180px) {
         width: 40%;
     }
@@ -59,7 +60,7 @@ const GamePage = (props) => {
     const [trivia, setTrivia] = useState([]);
     const [index, setIndex] = useState(0);
     const [points, setPoints] = useState(0);
-    const {category} = useParams()
+    const {category, int} = useParams()
 
     const randomize = (arr) => arr.sort(() => Math.random() - 0.5);
 
@@ -73,7 +74,7 @@ const GamePage = (props) => {
 
     useEffect(() => {
         if (category === "random") {
-            axios.get('https://the-trivia-api.com/questions?limit=3')
+            axios.get(`https://the-trivia-api.com/questions?limit=${int}`)
             .then(response => {
                 setTrivia(response.data.map(item => (
 
@@ -89,7 +90,7 @@ const GamePage = (props) => {
             .catch(e => console.error(e))
         }
         else {
-            axios.get(`https://the-trivia-api.com/questions?categories=${category}&limit=3`)
+            axios.get(`https://the-trivia-api.com/questions?categories=${category}&limit=${int}`)
             .then(response => {
                 setTrivia(response.data.map(item => (
 
@@ -123,7 +124,7 @@ const GamePage = (props) => {
                 </div>
                 }
                  {
-                index === 3 && <GameResults points={points} trivia={trivia} user={ props.user }/>
+                index === int*1 && <GameResults points={points} trivia={trivia} user={ props.user }/>
               }
 
         </Trivia>

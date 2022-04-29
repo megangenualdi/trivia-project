@@ -6,7 +6,7 @@ from django.contrib.auth.hashers import make_password
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = ["id", "image", "profile_text", "achievements", "results", "total_score", "achievement_info", "player"]
+        fields = ["id", "image", "profile_text", "achievements", "results", "total_score", "achievement_info", "player", "fact"]
     
     total_score = serializers.SerializerMethodField(read_only=True)
     achievement_info = serializers.SerializerMethodField(read_only=True)

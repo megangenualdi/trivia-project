@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import TriviaAPI from "../api/TriviaAPI"
+import Fact from "../components/Fact"
 
 function EditProfile(props) {
   
@@ -62,18 +63,22 @@ function EditProfile(props) {
 
     if (data) {
       console.log("RECEIVED update:", data)
-      
+      navigate(`/profiles/${id}`)
     }
   }
 
   const deleteProfile = async () => {
     let data = await TriviaAPI.delete(props.id)
     if (data) {
+      props.setUser([])
       console.log("Account deleted")
       navigate('/signup')
     }
   }
 
+  const goBack = () => {
+    navigate(`/profiles/${id}`)
+  }
   return (
     <div>
       <div class="page-title"><h2>Edit Profile</h2></div>
@@ -94,11 +99,12 @@ function EditProfile(props) {
         </form>
         <form method="DELETE" onSubmit={ deleteProfile }><button id="delete" type="submit">Delete Profile</button>
         </form>
-        <form>
+        <form onSubmit={ goBack }>
           <button id="back-btn" type="submit">Return to Profile Page</button>
         </form>
         
     </div>
+    <Fact />
     </div>
   )
 }
