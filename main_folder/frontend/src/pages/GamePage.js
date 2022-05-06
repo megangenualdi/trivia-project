@@ -126,7 +126,6 @@ const GamePage = (props) => {
                  {
                 index === int*1 && <GameResults points={points} trivia={trivia} user={ props.user }/>
               }
-
         </Trivia>
     )
 }

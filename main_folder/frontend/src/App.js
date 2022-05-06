@@ -1,6 +1,5 @@
 import './App.css';
 import { HashRouter, Routes, Route, Link } from "react-router-dom"
-//pages
 import HomePage from './pages/HomePage'
 import EditProfile from './pages/EditProfile';
 import GamePage from './pages/GamePage'
@@ -10,7 +9,6 @@ import ProfilePage from './pages/ProfilePage';
 import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage';
 import { useState, useEffect } from 'react'
-// import API_NINJA_KEY from './.env'
 
 function App() {
 
@@ -22,9 +20,9 @@ function App() {
     <HashRouter>
       <p id="play"><strong>Let's Play</strong></p>
       <ul>
-  <li>
-    <a href="#">
-      <h1>T</h1>
+        <li>
+          <a href="#">
+         <h1>T</h1>
     </a>
   </li>
   <li id="two">

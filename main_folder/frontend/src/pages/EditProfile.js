@@ -7,10 +7,9 @@ function EditProfile(props) {
   
   const [profile, setProfile] = useState(null)
   const navigate = useNavigate()
-   // params
+  
    const {id} = useParams()
 
-   // effects
    useEffect(() => {
      loadProfile()
    }, [id])
@@ -25,12 +24,6 @@ function EditProfile(props) {
          <img id="profile-image" src={profile.image} alt="avatar" />    
      )
   } 
-
-  // const renderText = () => {
-  //   return (
-  //     <textarea name="description" rows="5" cols="40">{profile.profile_text}</textarea>
-  //   )
-  // }
 
   const updateProfile = async (evt) => {
     evt.preventDefault()

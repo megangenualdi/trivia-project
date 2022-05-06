@@ -8,10 +8,8 @@ function ProfilePage(props) {
   const [profile, setProfile] = useState(null)
   const navigate = useNavigate()
 
-   // params
    const {id} = useParams()
 
-   // effects
    useEffect(() => {
      loadProfile()
    }, [id])
